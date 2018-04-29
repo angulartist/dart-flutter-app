@@ -1,6 +1,7 @@
-# app_bde
+# Mobile Development
 
-Experiment flutter n dart
+BDE IESA using flutter google UI and dart
 
 ## Getting Started
 
+WIP
