@@ -21,6 +21,95 @@ class _EventDetailsHeaderState extends State<EventDetailsHeader> {
   
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context);
+    var textTheme = theme.textTheme;
 
+    var banner = new Hero(
+      tag: widget.imageTag,
+      child: new CircleAvatar(
+        backgroundImage: new NetworkImage(widget.event.imageUrl),
+        radius: 75.0
+      )
+    );
+
+    var favInfo = new Padding(
+      padding: const EdgeInsets.only(top: 16.00),
+      child: new Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          new Icon(
+            Icons.favorite,
+            color: Colors.redAccent,
+            size: 16.0
+          ),
+          new Padding(
+            padding: const EdgeInsets.only(left: 8.0),
+            child: new Text(
+              widget.event.likeCounter.toString(),
+              style: textTheme.subhead.copyWith(color: Colors.white)
+            )
+          )
+        ],
+      ),
+    );
+
+    var actionButtons = new Padding(
+      padding: const EdgeInsets.only(
+        top: 16.0,
+        left: 16.0,
+        right: 16.0,
+      ),
+      child: new Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          new ClipRRect(
+            borderRadius: new BorderRadius.circular(30.0),
+            child: new MaterialButton(
+              minWidth: 140.0,
+              color: theme.accentColor,
+              textColor: Colors.white,
+              onPressed: () async {
+                //TODO
+              },
+              child: new Text('SUBSCRIBE'),
+            ),
+          ),
+          new ClipRRect(
+            borderRadius: new BorderRadius.circular(30.0),
+            child: new RaisedButton(
+              color: Colors.lightGreen,
+              disabledColor: Colors.grey,
+              textColor: Colors.white,
+              onPressed: () async {
+                //TODO
+              },
+              child: new Text('LIKE'),
+            ),
+          ),
+        ],
+      ),
+    );
+
+    return new Stack(
+      children: [
+        //TODO Background Image
+        new Align(
+          alignment: FractionalOffset.bottomCenter,
+          heightFactor: 1.4,
+          child: new Column(
+            children: [
+              banner,
+              favInfo,
+              actionButtons,
+            ],
+          ),
+        ),
+        new Positioned(
+          top: 26.0,
+          left: 4.0,
+          child: new BackButton(color: Colors.white),
+        ),
+      ],
+    );
   }
 }
