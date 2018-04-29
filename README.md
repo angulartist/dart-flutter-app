@@ -1,8 +1,6 @@
 # app_bde
 
-A new Flutter project.
+Experiment flutter n dart
 
 ## Getting Started
 
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
