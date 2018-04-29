@@ -3,6 +3,9 @@ import 'dart:async';
 import 'package:app_bde/models/event.dart';
 import 'package:app_bde/services/api.dart';
 import 'package:flutter/material.dart';
+import 'package:app_bde/ui/event_details/details_page.dart';
+import 'package:app_bde/utils/routes.dart';
+
 
 class EventList extends StatefulWidget {
   @override
@@ -25,6 +28,17 @@ class _EventListState extends State<EventList> {
     });
   }
 
+  _goToEventDetails(Event event, Object imageTag) {
+    Navigator.of(context).push(
+      new FadePageRoute(
+        builder: (c) {
+          return new EventDetailsPage(event, imageTag: imageTag);
+        },
+        settings: new RouteSettings()
+      )
+    );
+  }
+
   Widget _buildEventItem(BuildContext context, int index) {
     Event event = _events[index];
 
@@ -35,7 +49,7 @@ class _EventListState extends State<EventList> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             new ListTile(
-              //onTap: //TODO
+              onTap: () => _goToEventDetails(event, index),
               leading: new Hero(
                 tag: index,
                 child: new CircleAvatar(
