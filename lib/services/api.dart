@@ -14,7 +14,7 @@ class EventApi {
       title: map['title'],
       details: map['details'],
       location: map['location'],
-      bannerUrl: map['banner_url'],
+      imageUrl: map['image_url'],
       likeCounter: map['like_counter'],
       isFree: map['is_free'],
       pictures: new List<String>.from(map['pictures']),

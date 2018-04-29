@@ -4,7 +4,7 @@ class Event {
   final int externalId;
   final String title;
   final String details;
-  final String bannerUrl;
+  final String imageUrl;
   final String location;
   final int likeCounter;
   final bool isFree;
@@ -15,7 +15,7 @@ class Event {
     @required this.externalId,
     @required this.title,
     @required this.details,
-    @required this.bannerUrl,
+    @required this.imageUrl,
     @required this.location,
     @required this.likeCounter,
     @required this.isFree,

@@ -39,7 +39,7 @@ class _EventListState extends State<EventList> {
               leading: new Hero(
                 tag: index,
                 child: new CircleAvatar(
-                  backgroundImage: new NetworkImage(event.bannerUrl),
+                  backgroundImage: new NetworkImage(event.imageUrl),
                 ),
               ),
               title: new Text(
