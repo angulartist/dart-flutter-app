@@ -22,3 +22,4 @@ flutter:
 
   assets:
     - assets/events.json
+    - images/app_header_bg.jpg

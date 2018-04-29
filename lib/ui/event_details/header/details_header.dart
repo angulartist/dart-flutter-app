@@ -1,4 +1,5 @@
 import 'package:app_bde/models/event.dart';
+import 'package:app_bde/ui/event_details/header/event_app_image.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
@@ -18,11 +19,24 @@ class EventDetailsHeader extends StatefulWidget {
 }
 
 class _EventDetailsHeaderState extends State<EventDetailsHeader> {
+
+  static const APP_BG_IMAGE = 'images/app_header_bg.jpg';
   
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     var textTheme = theme.textTheme;
+    var screenWidth = MediaQuery.of(context).size.width;
+    
+    var slicedBackground = new SlicedAppImage(
+      new Image.asset(
+        APP_BG_IMAGE,
+        width: screenWidth,
+        height: 280.00,
+        fit: BoxFit.cover
+      ),
+      overlay: const Color(0x006064)
+    );
 
     var banner = new Hero(
       tag: widget.imageTag,
@@ -92,7 +106,7 @@ class _EventDetailsHeaderState extends State<EventDetailsHeader> {
 
     return new Stack(
       children: [
-        //TODO Background Image
+        slicedBackground,
         new Align(
           alignment: FractionalOffset.bottomCenter,
           heightFactor: 1.4,
